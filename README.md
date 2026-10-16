@@ -3,14 +3,14 @@
 Sito di [musicalmentelatina.it](https://www.musicalmentelatina.it/), generato con [Hugo](https://gohugo.io/).
 
 - `src/` – sorgenti del sito (contenuti in Markdown, template, stili, immagini)
-- `build/` – sito generato, da pubblicare così com'è su qualsiasi web server statico
+- `docs/` – sito generato, da pubblicare così com'è su qualsiasi web server statico
 - `hugo.exe` – Hugo 0.168.0
 
 ## Generare il sito
 
 ```sh
 cd src
-../hugo.exe --gc --minify      # genera il sito in ../build
+../hugo.exe --gc --minify      # genera il sito in ../docs
 ../hugo.exe server             # anteprima con ricarica automatica su http://localhost:1313
 ```
 

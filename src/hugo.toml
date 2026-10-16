@@ -2,7 +2,7 @@ baseURL = "https://www.musicalmentelatina.it/"
 defaultContentLanguage = "it"
 timeZone = "Europe/Rome"
 title = "Musicalmente Latina"
-publishDir = "../build"
+publishDir = "../docs"
 enableRobotsTXT = true
 # "Novità" -> /category/novita/
 removePathAccents = true
