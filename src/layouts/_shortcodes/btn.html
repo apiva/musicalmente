@@ -1,14 +1,13 @@
 {{- /*
 Button link.
-  href    URL; the special value "iscrizione" points to the online enrollment form
+  href    URL; "/page/" paths work under any baseURL; the special value
+          "iscrizione" points to the online enrollment form
   label   button text
   style   "primary" (default, red), "outline" (white outline), "link" (red underlined text), "white"
   size    "sm", "md" (default) or "lg"
 */ -}}
-{{- $href := .Get "href" -}}
-{{- $external := false -}}
-{{- if eq $href "iscrizione" }}{{ $href = site.Params.enrollURL }}{{ end -}}
-{{- if hasPrefix $href "http" }}{{ $external = true }}{{ end -}}
+{{- $href := partial "link.html" (.Get "href") -}}
+{{- $external := hasPrefix $href "http" -}}
 {{- $style := .Get "style" | default "primary" -}}
 <a class="btn btn--{{ $style }} btn--{{ .Get "size" | default "md" }}" href="{{ $href }}"{{ if $external }} target="_blank" rel="noopener"{{ end }}>{{ .Get "label" }}</a>
 {{- /**/ -}}

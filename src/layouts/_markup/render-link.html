@@ -1,0 +1,5 @@
+{{- /* Markdown links: root-relative paths are resolved against baseURL; external links open in a new tab. */ -}}
+{{- $href := partial "link.html" .Destination -}}
+{{- $external := hasPrefix $href "http" -}}
+<a href="{{ $href | safeURL }}"{{ with .Title }} title="{{ . }}"{{ end }}{{ if $external }} target="_blank" rel="noopener"{{ end }}>{{ .Text }}</a>
+{{- /**/ -}}

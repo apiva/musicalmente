@@ -1,0 +1,15 @@
+{{- /*
+Resolves a link written in content to a URL that works under the site's baseURL
+(including a subpath such as https://example.github.io/repo/).
+
+  "iscrizione"        → the online enrollment form (params.enrollURL)
+  "/contatti/"        → <baseURL path>/contatti/
+  "https://…", "#…", "mailto:…", "tel:…" → unchanged
+*/ -}}
+{{- $href := . -}}
+{{- if eq $href "iscrizione" -}}
+  {{- $href = site.Params.enrollURL -}}
+{{- else if hasPrefix $href "/" -}}
+  {{- $href = strings.TrimPrefix "/" $href | relURL -}}
+{{- end -}}
+{{- return $href -}}

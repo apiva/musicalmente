@@ -1,7 +1,7 @@
 {{- /* Small square image + title + Markdown text, inside {{% media-cards %}}.  image, title, href (optional link on image). */ -}}
 <article class="media-card">
 <div class="media-card__media">
-{{- with .Get "href" }}<a href="{{ . }}">{{ end -}}
+{{- with .Get "href" }}<a href="{{ partial "link.html" . }}">{{ end -}}
 {{- partial "img.html" (dict "src" (.Get "image") "width" 200 "sizes" "200px") -}}
 {{- with .Get "href" }}</a>{{ end -}}
 </div>

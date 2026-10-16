@@ -2,13 +2,13 @@
 <footer class="site-footer">
   <div class="container site-footer__grid">
     <div class="site-footer__about">
-      <a class="site-footer__logo" href="{{ "/" | relURL }}" aria-label="{{ site.Title }} – Home">
+      <a class="site-footer__logo" href="{{ site.Home.RelPermalink }}" aria-label="{{ site.Title }} – Home">
         {{ partial "img.html" (dict "src" "2017/04/Musicalmente_LOGOrosso.png" "width" 290 "alt" site.Title) }}
       </a>
       <p class="site-footer__address">{{ site.Params.legalName }},<br>{{ site.Params.address }}</p>
       <p class="site-footer__phone">Tel. WhatsApp: <a href="tel:+{{ site.Params.phoneIntl }}">{{ site.Params.phone }}</a></p>
       <p class="site-footer__hours">{{ delimit site.Params.hours "<br>" | safeHTML }}</p>
-      <a class="btn btn--sm" href="{{ "/contatti/" | relURL }}">Contattaci</a>
+      <a class="btn btn--sm" href="{{ "contatti/" | relURL }}">Contattaci</a>
     </div>
 
     <div class="site-footer__col">
@@ -34,7 +34,7 @@
       <form class="site-search" action="https://www.google.com/search" method="get" role="search" target="_blank" data-site-search>
         <input type="hidden" name="q" value="" data-site-search-query>
         <label class="visually-hidden" for="site-search-input">Cerca nel sito</label>
-        <input id="site-search-input" type="search" placeholder="Cerca nel sito..." data-site-search-input data-site-host="{{ (urls.Parse site.BaseURL).Host }}">
+        <input id="site-search-input" type="search" placeholder="Cerca nel sito..." data-site-search-input data-site-host="{{ $u := urls.Parse site.BaseURL }}{{ $u.Host }}{{ strings.TrimSuffix "/" $u.Path }}">
         <button type="submit" aria-label="Cerca">{{ partial "icon.html" "search" }}</button>
       </form>
       <a class="site-footer__cosmo" href="{{ site.Params.cosmoURL }}" target="_blank" rel="noopener">

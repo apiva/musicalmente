@@ -2,6 +2,6 @@
 <article class="card">
 <div class="card__media">{{ partial "img.html" (dict "src" (.Get "image") "width" 400 "sizes" "(max-width: 880px) 100vw, 400px") }}</div>
 <h3 class="card__title">{{ .Get "title" }}</h3>
-<a class="btn btn--link" href="{{ .Get "href" }}">{{ .Get "label" | default "Info" }}</a>
+<a class="btn btn--link" href="{{ partial "link.html" (.Get "href") }}">{{ .Get "label" | default "Info" }}</a>
 </article>
 {{- /**/ -}}

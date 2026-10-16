@@ -5,6 +5,6 @@
 <p class="cta-band__title">{{ .Get "title" }}</p>
 <p class="cta-band__subtitle">{{ .Get "subtitle" }}</p>
 </div>
-<a class="btn btn--primary btn--md" href="{{ .Get "href" }}">{{ .Get "label" }}</a>
+<a class="btn btn--primary btn--md" href="{{ partial "link.html" (.Get "href") }}">{{ .Get "label" }}</a>
 </div>
 </section>

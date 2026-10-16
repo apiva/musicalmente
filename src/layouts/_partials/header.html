@@ -1,7 +1,7 @@
 {{- $current := . }}
 <header class="site-header" data-header>
   <div class="container site-header__inner">
-    <a class="site-header__logo" href="{{ "/" | relURL }}" aria-label="{{ site.Title }} – Home">
+    <a class="site-header__logo" href="{{ site.Home.RelPermalink }}" aria-label="{{ site.Title }} – Home">
       {{ partial "img.html" (dict "src" "2025/02/Musicalmente_LOGObianco.png" "width" 350 "alt" site.Title "class" "logo logo--light" "eager" true) }}
       {{ partial "img.html" (dict "src" "2025/02/Musicalmente_LOGOnero.png" "width" 350 "alt" site.Title "class" "logo logo--dark" "eager" true) }}
     </a>
@@ -22,7 +22,7 @@
 <div class="mobile-menu" id="mobile-menu" hidden data-menu>
   <div class="mobile-menu__panel" role="dialog" aria-modal="true" aria-label="Menu">
     <div class="mobile-menu__top">
-      <a href="{{ "/" | relURL }}" aria-label="{{ site.Title }} – Home">
+      <a href="{{ site.Home.RelPermalink }}" aria-label="{{ site.Title }} – Home">
         {{ partial "img.html" (dict "src" "2025/02/Musicalmente_LOGOnero.png" "width" 220 "alt" site.Title) }}
       </a>
       <button class="mobile-menu__close" type="button" aria-label="Chiudi il menu" data-menu-close>
