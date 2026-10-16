@@ -1,0 +1,16 @@
+{{- /* Horizontal blog post card. Context: dict "page" <Page> "button" <bool> */ -}}
+{{- $p := .page }}
+<article class="post-card">
+  <a class="post-card__media" href="{{ $p.RelPermalink }}" tabindex="-1" aria-hidden="true">
+    {{- with $p.Params.image }}
+    {{ partial "img.html" (dict "src" . "width" 300 "sizes" "(max-width: 650px) 100vw, 300px") }}
+    {{- end }}
+  </a>
+  <div class="post-card__body">
+    <h3 class="post-card__title"><a href="{{ $p.RelPermalink }}">{{ $p.Title }}</a></h3>
+    {{ partial "post-meta.html" $p }}
+    {{- if .button }}
+    <a class="btn btn--link" href="{{ $p.RelPermalink }}">Read article</a>
+    {{- end }}
+  </div>
+</article>

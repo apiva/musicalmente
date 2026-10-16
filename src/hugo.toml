@@ -1,0 +1,135 @@
+baseURL = "https://www.musicalmentelatina.it/"
+defaultContentLanguage = "it"
+timeZone = "Europe/Rome"
+title = "Musicalmente Latina"
+publishDir = "../build"
+enableRobotsTXT = true
+# "Novità" -> /category/novita/
+removePathAccents = true
+disableKinds = ["rss"]
+
+[taxonomies]
+category = "categories"
+
+[permalinks.page]
+blog = "/:year/:month/:day/:slug/"
+
+[permalinks.term]
+categories = "/category/:slug/"
+
+[markup.goldmark.renderer]
+# Required so shortcodes can wrap Markdown in HTML containers.
+unsafe = true
+
+[markup.goldmark.parser.attribute]
+block = true
+
+[imaging]
+resampleFilter = "Lanczos"
+[imaging.webp]
+quality = 80
+[imaging.jpeg]
+quality = 82
+
+[outputs]
+home = ["html"]
+section = ["html"]
+taxonomy = ["html"]
+term = ["html"]
+
+[sitemap]
+changeFreq = "monthly"
+
+[languages.it]
+locale = "it-IT"
+label = "Italiano"
+
+# ---------------------------------------------------------------------------
+# School details, used by header, footer, contact page and shortcodes.
+# ---------------------------------------------------------------------------
+[params]
+description = "Musicalmente Latina, la scuola di musica a Latina: corsi di canto, pianoforte, chitarra, batteria, basso, violino e molto altro per bambini, ragazzi e adulti."
+legalName = "Musicalmente APS"
+address = "Largo Cesti piano I, int 24 04100 Latina"
+phone = "351 389 0201"
+# Number in international format, used for tel: and WhatsApp links.
+phoneIntl = "393513890201"
+hours = ["Lunedì – Venerdì: 9:30 – 20:00", "Sabato: 9:30 – 13:00"]
+recognition = "Scuola di Musica riconosciuta dalla **Regione Lazio** con **determinazione n. G15663**,"
+copyright = "© 2025 Musicalmente Latina"
+enrollURL = "https://musicalmente.mooking.it/iscrizione.html"
+facebook = "https://www.facebook.com/musicalmentelatina"
+instagram = "https://www.instagram.com/musicalmentelatina/"
+cosmoURL = "https://www.cosmomusica.org/"
+mapQuery = "Largo Cesti piano I, int 24 04100 Latina"
+
+# Contact form. With no `action`, the form composes a WhatsApp message to
+# `phoneIntl`. Set `action` to a form-handling endpoint (e.g. Formspree) to
+# have the form POST there instead.
+[params.contactForm]
+action = ""
+
+# ---------------------------------------------------------------------------
+# Menus
+# ---------------------------------------------------------------------------
+[[menus.main]]
+name = "Home"
+pageRef = "/"
+weight = 10
+[[menus.main]]
+name = "Chi siamo"
+pageRef = "/chisiamo"
+weight = 20
+[[menus.main]]
+name = "Docenti"
+pageRef = "/docenti"
+weight = 30
+[[menus.main]]
+name = "Corsi"
+pageRef = "/corsi"
+weight = 40
+[[menus.main]]
+name = "Diplomi"
+pageRef = "/diplomi"
+weight = 50
+[[menus.main]]
+name = "Iscriviti"
+url = "https://musicalmente.mooking.it/iscrizione.html"
+weight = 60
+[[menus.main]]
+name = "Faq"
+pageRef = "/faq"
+weight = 70
+[[menus.main]]
+name = "Contatti"
+pageRef = "/contatti"
+weight = 80
+[[menus.main]]
+name = "Blog"
+pageRef = "/blog"
+weight = 90
+
+[[menus.footer]]
+name = "Chi siamo"
+pageRef = "/chisiamo"
+weight = 10
+[[menus.footer]]
+name = "Corsi Musicali"
+pageRef = "/corsi"
+weight = 20
+[[menus.footer]]
+name = "Docenti"
+pageRef = "/docenti"
+weight = 30
+[[menus.footer]]
+name = "Diplomi"
+pageRef = "/diplomi"
+weight = 40
+[[menus.footer]]
+name = "Faq"
+pageRef = "/faq"
+weight = 50
+[[menus.footer]]
+name = "Contatti"
+pageRef = "/contatti"
+weight = 60

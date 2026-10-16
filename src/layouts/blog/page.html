@@ -1,0 +1,41 @@
+{{ define "bodyclass" }}header-solid{{ end }}
+{{ define "main" }}
+<article class="post">
+  <header class="post-hero" style="--bg: url('{{ partial "imgurl.html" (dict "src" (.Params.heroImage | default "2025/02/pexels-cottonbro-5650909-scaled.jpg") "width" 1920) }}')">
+    <div class="container post-hero__inner">
+      {{ partial "post-meta.html" . }}
+      <h1>{{ .Title }}</h1>
+    </div>
+  </header>
+  {{- with .Params.image }}
+  <div class="container post-featured">
+    {{ partial "img.html" (dict "src" . "width" 1100 "alt" "" "eager" true) }}
+  </div>
+  {{- end }}
+  <div class="container post-content prose">
+    {{ .Content }}
+  </div>
+</article>
+
+{{- $related := where (where site.RegularPages "Section" "blog") "Permalink" "ne" .Permalink }}
+{{- with $related }}
+<section class="section section--fade related">
+  <div class="container">
+    <h2 class="title-accent">Related Articles</h2>
+    <div class="related__grid">
+      {{- range first 3 . }}
+      <article class="related-card">
+        <a class="related-card__media" href="{{ .RelPermalink }}" tabindex="-1" aria-hidden="true">
+          {{- with .Params.image }}{{ partial "img.html" (dict "src" . "width" 360) }}{{ end }}
+        </a>
+        <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+        <p class="related-card__meta">
+          {{- range .GetTerms "categories" }}<a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>{{ end }} / {{ partial "post-meta-date.html" . }}
+        </p>
+      </article>
+      {{- end }}
+    </div>
+  </div>
+</section>
+{{- end }}
+{{ end }}

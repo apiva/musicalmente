@@ -1,0 +1,18 @@
+# Brand logos on the home page. `logo` is a path inside assets/images; the
+# logo is shown as a dark silhouette, so any color/transparent PNG works.
+- { name: Yamaha, logo: 2025/02/yamaha-Logo.png }
+- { name: DW Drums, logo: 2025/02/Drum_worksh_logo.png }
+- { name: Proel, logo: 2025/02/logo_proel.png }
+- { name: Zildjian, logo: 2025/02/Zildjian_Logo3.png }
+- { name: Meinl, logo: 2025/02/Meinl_cymbals_logo.png }
+- { name: Remo, logo: 2025/02/Remo_logo.png }
+- { name: Sonor, logo: 2025/02/Sonor_logo.png }
+- { name: Tama, logo: 2025/02/Tamadrums_logo.png }
+- { name: Warwick, logo: 2025/02/Warwick_Logo_white.png }
+- { name: Fender, logo: 2025/02/Fender_logo.png }
+- { name: Ibanez, logo: 2025/02/Ibanez-Logo.png }
+- { name: Shure, logo: 2025/02/Shure_Logo.png }
+- { name: Marshall, logo: 2025/02/Marshall_logo.png }
+- { name: Peavey, logo: 2025/02/peavey-logo.png }
+- { name: Randall, logo: 2025/02/Randall-Logo-Vector.svg-.png }
+- { name: Samson, logo: 2025/02/samson_logo.png }

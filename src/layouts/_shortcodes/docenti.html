@@ -1,0 +1,15 @@
+{{- /* Grid of teachers: one Markdown file per teacher in content/docenti/, ordered by `weight`. */ -}}
+<section class="section section--flush-top">
+<div class="container teachers">
+{{- range .Page.Pages.ByWeight }}
+<article class="teacher">
+{{ partial "img.html" (dict "src" .Params.photo "width" 400 "alt" .Title "class" "teacher__photo" "sizes" "(max-width: 650px) 100vw, (max-width: 1024px) 50vw, 400px") }}
+<h3 class="teacher__name">{{ .Title }}</h3>
+{{- range .Params.roles }}
+<p class="teacher__role">{{ . }}</p>
+{{- end }}
+<div class="teacher__bio">{{ .Content }}</div>
+</article>
+{{- end }}
+</div>
+</section>

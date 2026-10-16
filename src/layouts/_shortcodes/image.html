@@ -1,0 +1,3 @@
+{{- /* Single processed image.  src (path in assets/images), alt, width (CSS px, default 800), class. */ -}}
+{{ partial "img.html" (dict "src" (.Get "src") "alt" (.Get "alt") "width" (.Get "width" | default 800) "class" (.Get "class")) }}
+{{- /**/ -}}

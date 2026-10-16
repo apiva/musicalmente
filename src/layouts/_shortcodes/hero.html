@@ -1,0 +1,19 @@
+{{- /*
+Full-screen home hero. Use with {{% hero %}} buttons... {{% /hero %}}.
+
+  image      background photo (path in assets/images)
+  kicker     first title line, in red
+  title      second title line
+  subtitle   subtitle (Markdown allowed), rendered as the page H1
+*/ -}}
+<section class="hero" style="--bg: url('{{ partial "imgurl.html" (dict "src" (.Get "image") "width" 2400) }}')">
+<div class="container hero__inner">
+<p class="hero__title"><strong>{{ .Get "kicker" }}</strong> <span>{{ .Get "title" }}</span></p>
+{{- with .Get "subtitle" }}<h1 class="hero__subtitle">{{ . | markdownify }}</h1>{{ end }}
+<div class="hero__actions">
+
+{{ .Inner }}
+
+</div>
+</div>
+</section>

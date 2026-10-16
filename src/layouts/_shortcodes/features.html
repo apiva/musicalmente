@@ -1,0 +1,20 @@
+{{- /*
+Dark photo section with a centered heading and a grid of {{% feature %}} items.
+
+  tag       small red label
+  lead      centered lead sentence
+  bgimage   background photo (path in assets/images)
+*/ -}}
+<section class="section section--dark features"{{ with .Get "bgimage" }} style="--bg: url('{{ partial "imgurl.html" (dict "src" . "width" 1920) }}')"{{ end }}>
+<div class="container">
+<div class="features__head">
+{{- with .Get "tag" }}<span class="tag">{{ . }}</span>{{ end -}}
+{{- with .Get "lead" }}<p class="features__lead">{{ . | markdownify }}</p>{{ end -}}
+</div>
+<div class="features__grid">
+
+{{ .Inner }}
+
+</div>
+</div>
+</section>

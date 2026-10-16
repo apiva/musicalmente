@@ -1,0 +1,32 @@
+{{- /*
+Responsive image from assets/images.
+
+Parameters (dict):
+  src     path relative to assets/images (e.g. "2025/02/5.jpg")  [required]
+  width   rendered width in CSS pixels; a 2x variant is added    [default 800]
+  alt     alternative text                                        [default ""]
+  class   class attribute
+  sizes   sizes attribute                                         [default "<width>px" capped to 100vw]
+  eager   true to disable lazy loading (above-the-fold images)
+*/ -}}
+{{- $r := resources.Get (printf "images/%s" .src) -}}
+{{- if not $r -}}
+  {{- errorf "img partial: image %q not found in assets/images" .src -}}
+{{- end -}}
+{{- $w := .width | default 800 | int -}}
+{{- $alt := .alt | default "" -}}
+{{- $sizes := .sizes | default (printf "(max-width: %dpx) 100vw, %dpx" $w $w) -}}
+{{- $out := slice -}}
+{{- $srcset := slice -}}
+{{- range $mult := slice 1 2 -}}
+  {{- $tw := mul $w $mult -}}
+  {{- if or (eq $mult 1) (le $tw $r.Width) -}}
+    {{- $tw = cond (gt $tw $r.Width) $r.Width $tw -}}
+    {{- $img := $r.Resize (printf "%dx webp" $tw) -}}
+    {{- $out = $out | append $img -}}
+    {{- $srcset = $srcset | append (printf "%s %dw" $img.RelPermalink $img.Width) -}}
+  {{- end -}}
+{{- end -}}
+{{- $first := index $out 0 -}}
+<img src="{{ $first.RelPermalink }}" srcset="{{ delimit $srcset ", " }}" sizes="{{ $sizes }}" width="{{ $first.Width }}" height="{{ $first.Height }}" alt="{{ $alt }}"{{ with .class }} class="{{ . }}"{{ end }}{{ if .eager }} fetchpriority="high"{{ else }} loading="lazy" decoding="async"{{ end }}>
+{{- /**/ -}}

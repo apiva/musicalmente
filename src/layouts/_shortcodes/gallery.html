@@ -1,0 +1,17 @@
+{{- /*
+Image grid. One image path (in assets/images) per line inside the shortcode.
+  cols    number of columns (default 3)
+  ratio   CSS aspect ratio forced on every image, e.g. "1" for squares (default: natural)
+  width   "narrow" for a narrower, centered grid
+*/ -}}
+{{- $cols := .Get "cols" | default "3" | int -}}
+{{- $w := cond (ge $cols 3) 420 640 -}}
+<section class="section section--flush-top">
+<div class="container gallery{{ if eq (.Get "width") "narrow" }} gallery--narrow{{ end }}" style="--cols: {{ $cols }};{{ with .Get "ratio" }} --ratio: {{ . }};{{ end }}">
+{{- range split (strings.TrimSpace .Inner) "\n" }}
+{{- with strings.TrimSpace . }}
+<figure class="gallery__item">{{ partial "img.html" (dict "src" . "width" $w "sizes" (printf "(max-width: 650px) 100vw, %dpx" $w)) }}</figure>
+{{- end }}
+{{- end }}
+</div>
+</section>

@@ -1,0 +1,82 @@
+# Course catalogue, shown on the "Corsi" page (all entries, in this order) and
+# in the scrolling course cards on the home and "Chi siamo" pages
+# (entries with `scroller: true`).
+#
+#   name          course name
+#   description   one-line description
+#   image         photo, path inside assets/images
+#   scroller      true to show the course in the scrolling cards
+#   scrollerName  title in the scrolling card, if different from `name`
+#   avatar        round photo in the scrolling card, if different from `image`
+#   avatarName    name next to the round photo, if different from `name`
+#   cadence       text under the round photo (default "Corso settimanale")
+
+- name: Canto
+  description: Sviluppa la tua voce con esercizi mirati per migliorare tecnica, intonazione ed espressività.
+  image: 2025/02/pexels-dmitry-demidov-515774-3783471.jpg
+  scroller: true
+
+- name: Batteria
+  description: Per chi ama il ritmo e vuole apprendere groove, dinamiche e stili musicali diversi.
+  image: 2025/02/pexels-jadson-thomas-164235-542553.jpg
+  scroller: true
+  avatar: 2025/02/pexels-bigbagfilms-8512702.jpg
+
+- name: Basso
+  description: Il cuore pulsante di ogni band. Impara a padroneggiare il groove e la profondità del suono.
+  image: 2024/06/pexels-freestocks-96380.jpg
+  scroller: true
+
+- name: Chitarra
+  description: Acustica o elettrica, esplora stili che spaziano dal pop al rock, al blues e alla musica classica.
+  image: 2025/02/pexels-automnenoble-1011306.jpg
+  scroller: true
+  avatar: 2024/06/pexels-shvetsa-3987248.jpg
+
+- name: Piano/Keys
+  description: Scopri il fascino del pianoforte e delle tastiere, per una formazione che va dal classico al moderno.
+  image: 2024/06/pexels-pixabay-221569.jpg
+  scroller: true
+  scrollerName: Pianoforte
+  avatarName: Piano
+
+- name: Violino
+  description: Per chi desidera esplorare il repertorio classico e sviluppare precisione ed eleganza musicale.
+  image: 2024/06/pexels-nietjuhart-697672.jpg
+  scroller: true
+
+- name: Violoncello
+  description: Scopri la magia delle sonorità profonde e calde di questo strumento orchestrale.
+  image: 2025/02/pexels-pixabay-462510.jpg
+
+- name: Tromba
+  description: Domina l’arte del suono potente e brillante, con applicazioni nel jazz, nella classica e nel pop.
+  image: 2025/02/pexels-luana-3357078.jpg
+
+- name: Clarinetto
+  description: Strumento versatile per esplorare il repertorio classico, orchestrale e jazzistico.
+  image: 2025/02/pexels-shkrabaanthony-7970108.jpg
+
+- name: Performer Lab
+  description: Un percorso completo per sviluppare tutte le competenze performative, vocali e strumentali.
+  image: 2025/02/pexels-cottonbro-5648438-1.jpg
+
+- name: Ear Training
+  description: Allena il tuo orecchio musicale per migliorare intonazione, ritmo e comprensione armonica.
+  image: 2025/02/pexels-pixabay-164821.jpg
+
+- name: Performer Theory
+  description: Approfondisci la teoria musicale e la tecnica per una performance impeccabile.
+  image: 2025/02/pexels-pixabay-210764.jpg
+
+- name: Armonia e Arrangiamento
+  description: Impara a creare e arrangiare brani musicali unici, esplorando le basi dell’armonia.
+  image: 2025/02/pexels-kacper-cybinski-274654-834980.jpg
+
+- name: Sax
+  description: Perfetto per chi vuole immergersi nel jazz, nel blues o nel repertorio classico.
+  image: 2025/02/pexels-pixabay-164936.jpg
+
+- name: Propedeutica Musicale
+  description: Un percorso creativo per introdurre i più piccoli alla musica attraverso giochi, attività interattive e strumenti musicali.
+  image: 2025/02/pexels-pixabay-164835.jpg

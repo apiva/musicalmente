@@ -1,0 +1,34 @@
+{{- /*
+Two-column section: image(s) on one side, Markdown text on the other.
+Use with {{% split %}} ... {{% /split %}} so the inner text is rendered as Markdown.
+
+  image     main image (path in assets/images)          [required]
+  image2    optional second image, stacked under the first
+  alt       alt text for the image(s)
+  ratio     crop the image(s) to this aspect ratio (width / height), e.g. "0.8"
+  tag       small red label above the title
+  title     title (Markdown allowed)
+  size      title size: "lg" (default) or "sm" (smaller, uppercase-friendly)
+  reverse   "true" to put the image on the right
+  bg        "fade" (white → grey gradient) or "dark" (dark photo background)
+  bgimage   background photo for bg="dark"
+  align     "center" to vertically center the text column
+  divider   "true" to draw a full-width line under the section
+*/ -}}
+{{- $bg := .Get "bg" -}}
+{{- $reverse := eq (.Get "reverse") "true" -}}
+<section class="section split-section{{ with $bg }} section--{{ . }}{{ end }}{{ if eq (.Get "divider") "true" }} section--divider{{ end }}"{{ with .Get "bgimage" }} style="--bg: url('{{ partial "imgurl.html" (dict "src" . "width" 1920) }}')"{{ end }}>
+<div class="container split{{ if $reverse }} split--reverse{{ end }}{{ if eq (.Get "align") "center" }} split--center{{ end }}">
+<div class="split__media"{{ with .Get "ratio" }} style="--ratio: {{ . }}"{{ end }}>
+{{- partial "img.html" (dict "src" (.Get "image") "width" 600 "alt" (.Get "alt") "sizes" "(max-width: 880px) 100vw, 45vw") -}}
+{{- with .Get "image2" }}{{ partial "img.html" (dict "src" . "width" 600 "alt" ($.Get "alt") "sizes" "(max-width: 880px) 100vw, 45vw") }}{{ end -}}
+</div>
+<div class="split__body{{ with $bg }} split__body--{{ . }}{{ end }}">
+{{- with .Get "tag" }}<span class="tag">{{ . }}</span>{{ end -}}
+{{- with .Get "title" }}<h2 class="split__title split__title--{{ $.Get "size" | default "lg" }}">{{ . | markdownify }}</h2>{{ end }}
+
+{{ .Inner }}
+
+</div>
+</div>
+</section>

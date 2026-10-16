@@ -1,0 +1,6 @@
+{{- /* One figure inside {{< stats >}}.  prefix, value, suffix, label. */ -}}
+<div class="stat">
+<p class="stat__figure">{{ with .Get "prefix" }}<span class="stat__prefix">{{ . }}</span>{{ end }}<span class="stat__value">{{ .Get "value" }}</span>{{ with .Get "suffix" }}<span class="stat__suffix">{{ . }}</span>{{ end }}</p>
+<p class="stat__label">{{ .Get "label" }}</p>
+</div>
+{{- /**/ -}}

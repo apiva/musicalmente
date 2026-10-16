@@ -1,0 +1,20 @@
+{{- /*
+Two-column list of all courses from data/corsi.yaml.
+  button   optional label of an enrollment button shown after the last course
+*/ -}}
+<section class="section section--flush-top">
+<div class="container media-grid">
+{{- range hugo.Data.corsi }}
+<article class="media-card">
+<div class="media-card__media">{{ partial "img.html" (dict "src" .image "width" 200 "sizes" "200px") }}</div>
+<div class="media-card__body">
+<h3 class="media-card__title">{{ .name }}</h3>
+<p>{{ .description }}</p>
+</div>
+</article>
+{{- end }}
+{{- with .Get "button" }}
+<div class="media-grid__action"><a class="btn btn--primary btn--sm" href="{{ site.Params.enrollURL }}" target="_blank" rel="noopener">{{ . }}</a></div>
+{{- end }}
+</div>
+</section>

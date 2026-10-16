@@ -1,0 +1,11 @@
+{{- /* Grid of brand logos from data/marchi.yaml, shown as single-color silhouettes.  title: heading. */ -}}
+<section class="section brands">
+<div class="container">
+<h2 class="title-accent">{{ .Get "title" | default "I marchi con cui lavoriamo" }}</h2>
+<ul class="brands__grid">
+{{- range hugo.Data.marchi }}
+<li class="brands__item"><span class="brands__logo" role="img" aria-label="{{ .name }}" style="--logo: url('{{ partial "imgurl.html" (dict "src" .logo "width" 360) }}')"></span></li>
+{{- end }}
+</ul>
+</div>
+</section>

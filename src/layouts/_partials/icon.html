@@ -1,0 +1,6 @@
+{{- /* Inline SVG icon from assets/icons. Usage: {{ partial "icon.html" "check" }} */ -}}
+{{- $r := resources.Get (printf "icons/%s.svg" .) -}}
+{{- if not $r -}}
+  {{- errorf "icon partial: icon %q not found in assets/icons" . -}}
+{{- end -}}
+{{- replace $r.Content "<svg " (printf "<svg class=\"icon icon-%s\" " .) | strings.TrimSpace | safeHTML -}}

@@ -1,0 +1,13 @@
+{{ define "main" }}
+<section class="page-title" style="--bg: url('{{ partial "imgurl.html" (dict "src" "2024/02/Back_header.jpg" "width" 1920) }}')">
+  <div class="container">
+    <h1>Pagina non trovata</h1>
+  </div>
+</section>
+<section class="section">
+  <div class="container narrow center prose">
+    <p>La pagina che cerchi non esiste o è stata spostata.</p>
+    <p><a class="btn" href="{{ "/" | relURL }}">Torna alla home</a></p>
+  </div>
+</section>
+{{ end }}

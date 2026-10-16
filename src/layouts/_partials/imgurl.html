@@ -1,0 +1,11 @@
+{{- /*
+Returns the URL of a resized WebP version of an image in assets/images.
+Use for CSS backgrounds: {{ partial "imgurl.html" (dict "src" "2025/02/x.jpg" "width" 1920) }}
+*/ -}}
+{{- $r := resources.Get (printf "images/%s" .src) -}}
+{{- if not $r -}}
+  {{- errorf "imgurl partial: image %q not found in assets/images" .src -}}
+{{- end -}}
+{{- $w := .width | default 1920 | int -}}
+{{- $w = cond (gt $w $r.Width) $r.Width $w -}}
+{{- return ($r.Resize (printf "%dx webp" $w)).RelPermalink -}}

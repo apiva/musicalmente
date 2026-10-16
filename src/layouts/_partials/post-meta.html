@@ -1,0 +1,6 @@
+<div class="post-meta">
+  {{- range .GetTerms "categories" }}
+  <a class="post-meta__cat" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+  {{- end }}
+  {{ partial "post-meta-date.html" . }}
+</div>

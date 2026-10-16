@@ -1,0 +1,11 @@
+{{- /* One question in {{% faq %}}.  question, image. The answer is the Markdown inside. Numbered automatically. */ -}}
+<div class="faq-item">
+<span class="faq-item__num">{{ printf "%02d" (add .Ordinal 1) }}</span>
+<div class="faq-item__media">{{ partial "img.html" (dict "src" (.Get "image") "width" 280 "sizes" "280px") }}</div>
+<div class="faq-item__body">
+<h2 class="faq-item__question">{{ .Get "question" }}</h2>
+
+{{ .Inner }}
+
+</div>
+</div>

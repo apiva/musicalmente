@@ -1,0 +1,12 @@
+{{ define "main" }}
+{{ partial "page-title.html" . }}
+<section class="section">
+  <div class="container prose">
+    <ul>
+      {{- range .Pages }}
+      <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
+      {{- end }}
+    </ul>
+  </div>
+</section>
+{{ end }}

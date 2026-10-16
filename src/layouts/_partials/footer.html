@@ -1,0 +1,51 @@
+{{- $current := . }}
+<footer class="site-footer">
+  <div class="container site-footer__grid">
+    <div class="site-footer__about">
+      <a class="site-footer__logo" href="{{ "/" | relURL }}" aria-label="{{ site.Title }} – Home">
+        {{ partial "img.html" (dict "src" "2017/04/Musicalmente_LOGOrosso.png" "width" 290 "alt" site.Title) }}
+      </a>
+      <p class="site-footer__address">{{ site.Params.legalName }},<br>{{ site.Params.address }}</p>
+      <p class="site-footer__phone">Tel. WhatsApp: <a href="tel:+{{ site.Params.phoneIntl }}">{{ site.Params.phone }}</a></p>
+      <p class="site-footer__hours">{{ delimit site.Params.hours "<br>" | safeHTML }}</p>
+      <a class="btn btn--sm" href="{{ "/contatti/" | relURL }}">Contattaci</a>
+    </div>
+
+    <div class="site-footer__col">
+      <h2 class="site-footer__title">Musicalmente</h2>
+      <ul class="site-footer__menu">
+        {{- range site.Menus.footer }}
+        <li><a href="{{ .URL }}"{{ if $current.IsMenuCurrent "footer" . }} class="is-active" aria-current="page"{{ end }}>{{ .Name }}</a></li>
+        {{- end }}
+      </ul>
+    </div>
+
+    <div class="site-footer__col">
+      <h2 class="site-footer__title">Dove siamo</h2>
+      {{ partial "map.html" (dict "height" 180) }}
+    </div>
+
+    <div class="site-footer__col">
+      <h2 class="site-footer__title">Seguici</h2>
+      <div class="site-footer__social">
+        <a href="{{ site.Params.facebook }}" target="_blank" rel="noopener" aria-label="Facebook">{{ partial "icon.html" "facebook" }}</a>
+        <a href="{{ site.Params.instagram }}" target="_blank" rel="noopener" aria-label="Instagram">{{ partial "icon.html" "instagram" }}</a>
+      </div>
+      <form class="site-search" action="https://www.google.com/search" method="get" role="search" target="_blank" data-site-search>
+        <input type="hidden" name="q" value="" data-site-search-query>
+        <label class="visually-hidden" for="site-search-input">Cerca nel sito</label>
+        <input id="site-search-input" type="search" placeholder="Cerca nel sito..." data-site-search-input data-site-host="{{ (urls.Parse site.BaseURL).Host }}">
+        <button type="submit" aria-label="Cerca">{{ partial "icon.html" "search" }}</button>
+      </form>
+      <a class="site-footer__cosmo" href="{{ site.Params.cosmoURL }}" target="_blank" rel="noopener">
+        {{ partial "img.html" (dict "src" "2017/04/Cosmo_condivisione_B.png" "width" 210 "alt" "CO.SM.O. – Scuola di musica associata") }}
+      </a>
+    </div>
+  </div>
+
+  <div class="container site-footer__bottom">
+    <p>{{ site.Params.copyright }}</p>
+    <p>{{ site.Params.recognition | markdownify }}</p>
+    <p>{{ site.Params.address }}</p>
+  </div>
+</footer>

@@ -1,0 +1,10 @@
+{{- /*
+Markdown images: ![alt](2025/02/foo.jpg) is looked up in assets/images and
+resized; any other destination (absolute URL, /static path) is used as is.
+*/ -}}
+{{- $dest := .Destination -}}
+{{- if resources.Get (printf "images/%s" (strings.TrimPrefix "/" $dest)) -}}
+  {{- partial "img.html" (dict "src" (strings.TrimPrefix "/" $dest) "alt" .PlainText "width" 900) -}}
+{{- else -}}
+  <img src="{{ $dest | safeURL }}" alt="{{ .PlainText }}" loading="lazy">
+{{- end -}}

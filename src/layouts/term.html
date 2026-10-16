@@ -1,0 +1,10 @@
+{{ define "main" }}
+{{ partial "page-title.html" . }}
+<section class="section">
+  <div class="container post-grid">
+    {{- range .Pages.ByDate.Reverse }}
+    {{ partial "post-card.html" (dict "page" . "button" true) }}
+    {{- end }}
+  </div>
+</section>
+{{ end }}

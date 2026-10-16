@@ -1,0 +1,15 @@
+{{- /*
+Generic content section for long Markdown text.
+Use with {{% section %}} ... {{% /section %}}.
+
+  width   "narrow" (about 900px) or "full" (default)
+  bg      "fade" for the white → grey gradient background
+  tight   "true" to remove the top padding
+*/ -}}
+<section class="section{{ with .Get "bg" }} section--{{ . }}{{ end }}{{ if eq (.Get "tight") "true" }} section--flush-top{{ end }}">
+<div class="container prose{{ if eq (.Get "width") "narrow" }} narrow{{ end }}">
+
+{{ .Inner }}
+
+</div>
+</section>

@@ -1,0 +1,8 @@
+{{- /* Latest blog posts as horizontal cards.  count: number of posts (default 2). */ -}}
+<section class="section section--flush-top">
+<div class="container post-grid">
+{{- range first (.Get "count" | default 2 | int) (where site.RegularPages.ByDate.Reverse "Section" "blog") }}
+{{ partial "post-card.html" (dict "page" .) }}
+{{- end }}
+</div>
+</section>

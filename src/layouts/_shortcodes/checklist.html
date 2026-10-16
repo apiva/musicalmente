@@ -1,0 +1,9 @@
+{{- /*
+Wraps a Markdown list and shows red check marks instead of bullets.
+Use with {{% checklist %}} ... {{% /checklist %}}.  cols: "2" for two columns.  light: "true" on dark backgrounds.
+*/ -}}
+<div class="checklist{{ if eq (.Get "cols") "2" }} checklist--2{{ end }}{{ if eq (.Get "light") "true" }} checklist--light{{ end }}">
+
+{{ .Inner }}
+
+</div>

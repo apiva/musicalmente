@@ -1,0 +1,4 @@
+{{- /* Google Maps embed of the school address. Parameters (dict): height (px). */ -}}
+<div class="map" style="--map-height: {{ .height | default 300 }}px">
+  <iframe src="https://maps.google.com/maps?q={{ site.Params.mapQuery | urlquery }}&amp;t=m&amp;z=16&amp;output=embed&amp;iwloc=near" title="{{ site.Params.address }}" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>

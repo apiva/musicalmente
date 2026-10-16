@@ -1,0 +1,4 @@
+{{- /* Italian long date with capitalized month, e.g. "17 Febbraio 2025". Context: Page. */ -}}
+{{- $months := slice "Gennaio" "Febbraio" "Marzo" "Aprile" "Maggio" "Giugno" "Luglio" "Agosto" "Settembre" "Ottobre" "Novembre" "Dicembre" -}}
+<time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Day }} {{ index $months (sub (int .Date.Month) 1) }} {{ .Date.Year }}</time>
+{{- /**/ -}}

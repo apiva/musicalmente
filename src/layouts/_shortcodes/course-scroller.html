@@ -1,0 +1,27 @@
+{{- /*
+Horizontally scrolling course testimonials-style cards, from data/corsi.yaml
+(courses with `scroller: true`).  title: red heading above the cards.
+*/ -}}
+<section class="section section--fade scroller-section">
+<div class="container">
+<h2 class="title-accent">{{ .Get "title" | default "I nostri corsi Musicali" }}</h2>
+</div>
+<div class="scroller" data-scroller>
+<div class="scroller__track" data-scroller-track tabindex="0" aria-label="Corsi">
+{{- range where hugo.Data.corsi "scroller" true }}
+<article class="scroller__item">
+<div class="quote-card">
+{{ partial "icon.html" "quote" }}
+<h3>{{ .scrollerName | default .name }}</h3>
+<p>{{ .description }}</p>
+</div>
+<div class="scroller__person">
+{{ partial "img.html" (dict "src" (.avatar | default .image) "width" 70 "sizes" "70px" "class" "scroller__avatar") }}
+<div><p class="scroller__name">{{ .avatarName | default .name }}</p><p class="scroller__meta">{{ .cadence | default "Corso settimanale" }}</p></div>
+</div>
+</article>
+{{- end }}
+</div>
+<div class="scroller__progress" aria-hidden="true"><span data-scroller-bar></span></div>
+</div>
+</section>

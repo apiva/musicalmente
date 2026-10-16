@@ -1,0 +1,10 @@
+{{- /* Dark photo band with a call to action.  bgimage, title, subtitle, label, href. */ -}}
+<section class="cta-band" style="--bg: url('{{ partial "imgurl.html" (dict "src" (.Get "bgimage") "width" 1920) }}')">
+<div class="container cta-band__inner">
+<div>
+<p class="cta-band__title">{{ .Get "title" }}</p>
+<p class="cta-band__subtitle">{{ .Get "subtitle" }}</p>
+</div>
+<a class="btn btn--primary btn--md" href="{{ .Get "href" }}">{{ .Get "label" }}</a>
+</div>
+</section>

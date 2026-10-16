@@ -1,0 +1,12 @@
+{{- /*
+One item of {{% features %}}.  icon: name of an SVG in assets/icons;  title: item title.
+*/ -}}
+<div class="feature">
+{{- with .Get "icon" }}<span class="feature__icon">{{ partial "icon.html" . }}</span>{{ end -}}
+<h3 class="feature__title">{{ .Get "title" }}</h3>
+<div class="feature__text">
+
+{{ .Inner }}
+
+</div>
+</div>

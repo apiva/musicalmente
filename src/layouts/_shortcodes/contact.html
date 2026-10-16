@@ -1,0 +1,32 @@
+{{- /*
+Contact page layout: Markdown on the left, contact form card on the right.
+Use with {{% contact formTitle="..." formText="..." %}} ... {{% /contact %}}.
+
+The form fields mirror the original site. With params.contactForm.action empty
+(hugo.toml) the form opens WhatsApp with the message pre-filled; otherwise it is
+POSTed to that endpoint.
+*/ -}}
+{{- $action := site.Params.contactForm.action -}}
+<section class="section">
+<div class="container contact">
+<div class="contact__info">
+
+{{ .Inner }}
+
+</div>
+<div class="contact__card">
+<h2 class="contact__title">{{ .Get "formTitle" | default "Contattaci per email" }}</h2>
+<p class="contact__subtitle">{{ .Get "formText" | default "Compila il form con i tuoi dati" }}</p>
+<form class="contact-form"{{ with $action }} action="{{ . }}" method="post"{{ else }} action="https://wa.me/{{ site.Params.phoneIntl }}" method="get" target="_blank" data-whatsapp-form{{ end }}>
+<div class="contact-form__field"><label for="cf-name">Nome <span aria-hidden="true">*</span></label><input id="cf-name" name="nome" type="text" placeholder="Nome" required autocomplete="name"></div>
+<div class="contact-form__field"><label for="cf-email">Email <span aria-hidden="true">*</span></label><input id="cf-email" name="email" type="email" placeholder="Email" required autocomplete="email"></div>
+<div class="contact-form__field"><label for="cf-phone">Telefono</label><input id="cf-phone" name="telefono" type="tel" placeholder="Telefono" autocomplete="tel"></div>
+<div class="contact-form__field"><label for="cf-course">Corso Musicale</label><input id="cf-course" name="corso" type="text" placeholder="Corso Musicale"></div>
+<div class="contact-form__field contact-form__field--full"><label for="cf-message">Vuoi iscriverti ad un corso?</label><textarea id="cf-message" name="messaggio" rows="7" placeholder="Scrivi qui il tuo messaggio"></textarea></div>
+{{- if not $action }}<input type="hidden" name="text" value="" data-whatsapp-text>{{ end }}
+<div class="contact-form__field contact-form__field--full"><button class="btn btn--primary btn--block" type="submit">Invia il tuo messaggio a Musicalmente</button></div>
+{{- if not $action }}<p class="contact-form__note contact-form__field--full">Il messaggio verrà aperto in WhatsApp, pronto da inviare.</p>{{ end }}
+</form>
+</div>
+</div>
+</section>
