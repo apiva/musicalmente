@@ -1,0 +1,3 @@
+[submodule "ext/hugo"]
+	path = ext/hugo
+	url = https://github.com/gohugoio/hugo.git
